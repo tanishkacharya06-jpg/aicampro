@@ -9,8 +9,11 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-      - uses: android-actions/setup-android@v3
-      - name: Install Android SDK packages
+      - name: Install Android command line tools
+        uses: android-actions/setup-android@v3
+        with:
+          cmdline-tools-version: 12266719
+      - name: Install SDK packages
         run: sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
       - uses: gradle/actions/setup-gradle@v4
         with:
